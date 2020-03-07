@@ -1,3 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Roboto:400,700&display=swap');
+@import url('./animate.css');
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Pacifico', cursive; */
+
+html {
+    overflow-x: hidden;
+}
+
 body {
-    background: #000;
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+    /* overflow-x: hidden; */
+}
+
+.logo, .des, .from {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto 0;
+    font-family: 'Pacifico', cursive;
+}
+
+.name {
+    background: url('https://www.xmple.com/wallpaper/pink-orange-gradient-linear-2048x1152-c2-ff6347-ff1493-a-285-f-14.svg');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+}
+
+.flower_1, .flower_2 {
+    width: 200px;
+    position: absolute;
+    filter: drop-shadow(3px 4px 7px #a9a9a9);
+}
+
+.flower_1 {
+    /* transform: rotate(-45deg); */
+    animation: fadeInLeft 1s ease;
+    left: 20px;
+    top: 40%;
+}
+
+.flower_2 {
+    /* transform: rotate(-45deg); */
+    animation: fadeInRight 1s ease;
+    right: 20px;
+    top: 50%;
+}
+
+.from {
+    font-size: 22px;
+}
+
+.logo {
+    animation: bounceInDown 1s ease;
+    color: #000;
+    font-size: 64px;
+    margin-top: 40%;
+}
+
+.des {
+    animation: bounceInUp 1s ease;
+    margin-top: 350px;
+    font-size: 28px;
+}
+
+@media (min-width: 300px) and (max-width: 600px) {
+    .logo {
+        font-size: 50px;
+    }
+    
+    .des {
+        font-size: 24px;
+    }
 }
