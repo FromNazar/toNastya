@@ -4,22 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Hello!</title>
+    <title>С 8 марта от Назара!</title>
 </head>
 <body>
     <div class="logo" > 
         Привет, <span class="name">Настя!</span>
     </div>
 
-    <img src="https://daricveti.by/wp-content/uploads/2018/08/smeshannye-bukety.png" alt="WOW" class="flower_1"/>
-    <img src="https://pngimage.net/wp-content/uploads/2018/06/%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D1%8B%D0%B9-%D0%B1%D1%83%D0%BA%D0%B5%D1%82-%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D0%B2-png-1.png" alt="WOW" class="flower_2"/>
+    <div class="flowers">
+        <img src="https://daricveti.by/wp-content/uploads/2018/08/smeshannye-bukety.png" alt="WOW" class="flower_1" id='flower'/>
+        <img src="https://pngimage.net/wp-content/uploads/2018/06/%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D1%8B%D0%B9-%D0%B1%D1%83%D0%BA%D0%B5%D1%82-%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D0%B2-png-1.png" alt="WOW" id='flower' class="flower_2"/>
+    </div>
 
     <div class="des">
         Поздравляю тебя с 8 марта
     </div>
 
     <div class="from">
-        От Назара :)
+        От Назара <span class="name">:)</span>
+
+        <div>
+            <br>
+
+            <p>Blue moon</p>
+            <p>Now I'm no longer alone</p>
+            <p>Without a dream in my heart</p>
+            <p>Without a love of my own</p>
+
+            <br>
+
+            <p>- Боб Дилан</p>
+        </div>
     </div>
+
+    <div id="sky">
+
+    </div>
+
+    <script>
+        let flowers = document.querySelectorAll('#flower');
+        let des = document.querySelector('.des');
+        let from = document.querySelector('.from');
+        let sky = document.querySelector('#sky');
+
+        let colors = ['red', 'blue', 'green', 'pink']
+
+        setTimeout(() => {
+            flowers.forEach(el => {
+                el.style.opacity = '1';
+            })
+
+            from.style.opacity = '1';
+        }, 1000)
+
+        setTimeout(() => {
+            des.style.opacity = '1';
+        }, 500)
+
+        function animationText() {
+            let num = Math.round(Math.random() * 7) + 2;
+
+            for(let i = 0; i < num; i++) {
+                let newEl = document.createElement('div');
+                newEl.innerText = 'Настя ты все можешь!';
+                newEl.classList.add('abs-text');
+
+                let randColor = colors[Math.round(Math.random() * (colors.length - 1))];
+                let randY = Math.ceil(Math.random() * sky.clientHeight) - 50;
+
+                console.log(sky.clientHeight, randY)
+
+                newEl.style.top = `${randY}px`;
+                newEl.classList.add(randColor);
+
+                setTimeout(() => {
+                    sky.appendChild(newEl);
+                }, Math.round(Math.random() * 5000))
+            }
+        }
+
+        animationText()
+    </script>   
 </body>
 </html>

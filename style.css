@@ -3,14 +3,19 @@
 /* font-family: 'Roboto', sans-serif;
 font-family: 'Pacifico', cursive; */
 
-html {
+#main {
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
-body {
-    background: #fff;
-    font-family: 'Roboto', sans-serif;
-    /* overflow-x: hidden; */
+#sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    z-index: -1;
 }
 
 .logo, .des, .from {
@@ -27,24 +32,38 @@ body {
     background-size: cover;
 }
 
+.flowers {
+    width: 100%;
+    height: 300px;
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#flower, .from {
+    opacity: 0;
+    transition: all .4s;
+}
+
 .flower_1, .flower_2 {
     width: 200px;
     position: absolute;
+    bottom: 30px;
     filter: drop-shadow(3px 4px 7px #a9a9a9);
 }
 
 .flower_1 {
     /* transform: rotate(-45deg); */
-    animation: fadeInLeft 1s ease;
-    left: 20px;
-    top: 40%;
+    animation: fadeInLeft 1s 1s ease;
+    left: 10px;
+    /* top: 20%; */
 }
 
 .flower_2 {
     /* transform: rotate(-45deg); */
-    animation: fadeInRight 1s ease;
-    right: 20px;
-    top: 50%;
+    animation: fadeInRight 1s 1s ease;
+    right: 10px;
+    /* top: 30%; */
 }
 
 .from {
@@ -59,17 +78,86 @@ body {
 }
 
 .des {
-    animation: bounceInUp 1s ease;
-    margin-top: 350px;
+    animation: bounceInUp 1s .4s ease;
+    margin-top: 30px;
     font-size: 28px;
+    opacity: 0;
 }
 
-@media (min-width: 300px) and (max-width: 600px) {
+.abs-text {
+    font-size: 26px;
+    z-index: -1;
+    font-weight: 600;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    animation: fly 4s infinite linear;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.pink {
+    color: palevioletred;
+}
+
+.red {
+    color: tomato;
+}
+
+.blue {
+    color: royalblue;
+}   
+
+.green {
+    color: yellowgreen;
+}
+
+@media (min-width: 250px) and (max-width: 340px) {
+    .logo {
+        font-size: 45px;
+    }
+
+    .flower_1, .flower_2 {
+        width: 150px;
+    }
+}
+
+@media (min-width: 350px) and (max-width: 440px) {
     .logo {
         font-size: 50px;
     }
     
     .des {
         font-size: 24px;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 1800px) {
+    .logo {
+        margin-top: 18%;
+    }
+
+    .flower_1 {
+        animation: fadeInRight 1s ease;
+        left: 50%;
+        transform: translate3d(0px, -50%);
+    }
+    
+    .flower_2 {
+        animation: fadeInLeft 1s ease;
+        right: 50%;
+        transform: translate3d(0px, -50%);
+    }
+
+    .abs-text {
+        animation: fly 8s infinite linear;
+    }
+}
+
+@keyframes fly {
+    from {
+        left: -100px;
+    }
+    to {
+        left: 105%;
     }
 }
