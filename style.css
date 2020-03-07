@@ -155,7 +155,7 @@ font-family: 'Pacifico', cursive; */
 
 @keyframes fly {
     from {
-        left: -100px;
+        left: -200px;
     }
     to {
         left: 105%;
